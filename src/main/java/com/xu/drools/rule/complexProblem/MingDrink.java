@@ -30,5 +30,7 @@ public class MingDrink {
         ksession.insert(xiaoMing);
         ksession.fireAllRules();
         ksession.dispose();
+        int count  = xiaoMing.getDrink();
+        System.out.println("---cnt:---"+count);
     }
 }
