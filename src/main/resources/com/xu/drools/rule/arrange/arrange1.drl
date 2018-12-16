@@ -1,0 +1,26 @@
+package com.xu.drools;
+
+
+import com.xu.drools.rule.arrange.Employee;
+
+rule "1"
+	when
+        $p : Employee(name == "li" );
+    then
+        $p.setWeek("周一");
+        //update($p)
+		System.out.println("hello, li!");
+end
+
+rule "2"
+	when
+        $p : Employee(name == "si" );
+    then
+        $p.setWeek("周二");
+        //update($p)
+		System.out.println("hello, si!");
+end
+
+query "Employee"
+    employee : Employee( name == "lisi" )
+end
