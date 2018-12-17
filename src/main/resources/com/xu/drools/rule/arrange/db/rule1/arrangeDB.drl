@@ -16,12 +16,12 @@ rule "g1-01"
 	when
         $p : Employee((order%5) == 1);
     then
-        $p.setArrangeJson("{{w:1,S:0}," +
-          "{w:2,S:A }," +
-          "{w:3,S:A }," +
-          "{w:4,S:A }," +
-          "{w:5,S:A }," +
-          "{w:6,S:A }," +
+        $p.setArrangeJson("{{W:1,S:0}," +
+          "{W:2,S:A }," +
+          "{W:3,S:A }," +
+          "{W:4,S:A }," +
+          "{W:5,S:A }," +
+          "{W:6,S:A }," +
           "{W:7,S:0 }}");
         //update($p)
         //$p.setArrangeJson(hello1(1));
@@ -32,12 +32,12 @@ rule "g1-02"
 	when
         $p : Employee((order%5) == 2);
     then
-        $p.setArrangeJson("{{w:1,s:A}," +
-          "{w:2,S:0 }," +
-          "{w:3,S:A }," +
-          "{w:4,S:A }," +
-          "{w:5,S:A }," +
-          "{w:6,S:A }," +
+        $p.setArrangeJson("{{W:1,S:A}," +
+          "{W:2,S:0 }," +
+          "{W:3,S:A }," +
+          "{W:4,S:A }," +
+          "{W:5,S:A }," +
+          "{W:6,S:A }," +
           "{W:7,S:0 }}");
         //update($p)
         //$p.setArrangeJson(hello2(2));
@@ -49,12 +49,12 @@ rule "g1-03"
 	when
         $p : Employee( (order%5) == 3);
     then
-        $p.setArrangeJson("{{w:1,s:A}," +
-          "{w:2,S:A }," +
-          "{w:3,S:0 }," +
-          "{w:4,S:A }," +
-          "{w:5,S:A }," +
-          "{w:6,S:A }," +
+        $p.setArrangeJson("{{W:1,S:A}," +
+          "{W:2,S:A }," +
+          "{W:3,S:0 }," +
+          "{W:4,S:A }," +
+          "{W:5,S:A }," +
+          "{W:6,S:A }," +
           "{W:7,S:0 }}");
         //update($p)
         //System.out.println(hello3($p.getOrder()));
@@ -65,12 +65,12 @@ rule "g1-04"
 	when
         $p : Employee( (order%5) == 4);
     then
-        $p.setArrangeJson("{{w:1,s:A}," +
-          "{w:2,S:A }," +
-          "{w:3,S:A }," +
-          "{w:4,S:0 }," +
-          "{w:5,S:A }," +
-          "{w:6,S:A }," +
+        $p.setArrangeJson("{{W:1,S:A}," +
+          "{W:2,S:A }," +
+          "{W:3,S:A }," +
+          "{W:4,S:0 }," +
+          "{W:5,S:A }," +
+          "{W:6,S:A }," +
           "{W:7,S:0 }}");
         //update($p)
         //System.out.println(hello4($p.getOrder()));

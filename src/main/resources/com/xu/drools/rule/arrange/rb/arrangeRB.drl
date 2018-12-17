@@ -91,13 +91,13 @@ rule "g1-01"
 	when
         $p : Employee((order%4) == 1);
     then
-        $p.setArrangeJson("{{w:1,s:A}," +
-          "{w:2,S:B }," +
-          "{w:3,S:C }," +
-          "{w:4,S:0 }," +
-          "{w:5,S:A }," +
-          "{w:6,S:B }," +
-          "{s:7,w:C }}");
+//        $p.setArrangeJson("{{w:1,s:A}," +
+//          "{w:2,S:B }," +
+//          "{w:3,S:C }," +
+//          "{w:4,S:0 }," +
+//          "{w:5,S:A }," +
+//          "{w:6,S:B }," +
+//          "{s:7,w:C }}");
         //update($p)
         $p.setArrangeJson(hello1(1));
         //System.out.println(hello1($p.getOrder()));
@@ -107,13 +107,13 @@ rule "g1-02"
 	when
         $p : Employee((order%4) == 2);
     then
-        $p.setArrangeJson("{{w:1,s:B}," +
-          "{w:2,S:C }," +
-          "{w:3,S:0 }," +
-          "{w:4,S:A }," +
-          "{w:5,S:B }," +
-          "{w:6,S:C }," +
-          "{s:7,w:0 }}");
+//        $p.setArrangeJson("{{w:1,s:B}," +
+//          "{w:2,S:C }," +
+//          "{w:3,S:0 }," +
+//          "{w:4,S:A }," +
+//          "{w:5,S:B }," +
+//          "{w:6,S:C }," +
+//          "{s:7,w:0 }}");
         //update($p)
         $p.setArrangeJson(hello2(2));
         //System.out.println(hello2($p.getOrder()));
@@ -124,13 +124,13 @@ rule "g1-03"
 	when
         $p : Employee( (order%4) == 3);
     then
-        $p.setArrangeJson("{{w:1,s:C}," +
-          "{w:2,S:0 }," +
-          "{w:3,S:A }," +
-          "{w:4,S:B }," +
-          "{w:5,S:C }," +
-          "{w:6,S:0 }," +
-          "{s:7,w:A }}");
+//        $p.setArrangeJson("{{w:1,s:C}," +
+//          "{w:2,S:0 }," +
+//          "{w:3,S:A }," +
+//          "{w:4,S:B }," +
+//          "{w:5,S:C }," +
+//          "{w:6,S:0 }," +
+//          "{s:7,w:A }}");
         //update($p)
         //System.out.println(hello3($p.getOrder()));
         $p.setArrangeJson(hello3(3));
@@ -140,13 +140,13 @@ rule "g1-04"
 	when
         $p : Employee( (order%4) == 0);
     then
-        $p.setArrangeJson("{{w:1,s:0}," +
-          "{w:2,S:A }," +
-          "{w:3,S:B }," +
-          "{w:4,S:C }," +
-          "{w:5,S:0 }," +
-          "{w:6,S:A }," +
-          "{s:7,w:B }}");
+//        $p.setArrangeJson("{{w:1,s:0}," +
+//          "{w:2,S:A }," +
+//          "{w:3,S:B }," +
+//          "{w:4,S:C }," +
+//          "{w:5,S:0 }," +
+//          "{w:6,S:A }," +
+//          "{s:7,w:B }}");
         //update($p)
         //System.out.println(hello4($p.getOrder()));
         $p.setArrangeJson(hello4(4));
