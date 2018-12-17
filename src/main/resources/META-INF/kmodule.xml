@@ -26,4 +26,22 @@
         <ksession name="arrangeKS"/>
     </kbase>
 
+    <kbase name="arrangeForRBKB" packages="com.xu.drools.rule.arrange.rb">
+        <ksession name="arrangeForRBKS"/>
+    </kbase>
+
+    <kbase name="arrangeForDB1KB" packages="com.xu.drools.rule.arrange.db.rule1">
+        <ksession name="arrangeForDB1KS"/>
+    </kbase>
+
+    <kbase name="arrangeForDB2KB" packages="com.xu.drools.rule.arrange.db.rule2">
+        <ksession name="arrangeForDB2KS"/>
+    </kbase>
+
+    <kbase name="arrangeForABKB" packages="com.xu.drools.rule.arrange.ab">
+        <ksession name="arrangeForABKS"/>
+    </kbase>
+
+
+
 </kmodule>

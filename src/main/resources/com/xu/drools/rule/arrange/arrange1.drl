@@ -2,23 +2,43 @@ package com.xu.drools;
 
 
 import com.xu.drools.rule.arrange.Employee;
+import com.xu.drools.rule.arrange.ArrangeInfo;
 
 rule "1"
 	when
-        $p : Employee(name == "li" );
+        $p : Employee(group=="g1" , order == 1 );
     then
-        $p.setWeek("周一");
+//        ArrangeInfo arrangeInfo =  new ArrangeInfo("0","1","2018-12-12");
+//        insert( arrangeInfo );
+//        List<ArrangeInfo> arrangeInfoList = new ArrayList<ArrangeInfo>();
+//        arrangeInfoList.add(arrangeInfo);
+//        $p.setArrangeInfoList($a);
+        $p.setArrangeJson("{{s:0,w:1,d:3}," +
+          "{s:0,w:2,d:3}," +
+          "{s:3,w:3,d:3}," +
+          "{s:2,w:4,d:3}," +
+          "{s:1,w:5,d:3}," +
+          "{s:3,w:6,d:3}," +
+          "{s:2,w:7,d:3}}");
+
         //update($p)
-		System.out.println("hello, li!");
+		System.out.println("hello, "+$p.getName());
 end
 
 rule "2"
 	when
-        $p : Employee(name == "si" );
+        $p : Employee(group=="g1" ,order == 2 );
     then
-        $p.setWeek("周二");
+        $p.setArrangeJson("{{s:1,w:1,d:3}," +
+                  "{s:1,w:2,d:3}," +
+                  "{s:0,w:3,d:3}," +
+                  "{s:0,w:4,d:3}," +
+                  "{s:1,w:5,d:3}," +
+                  "{s:3,w:6,d:3}," +
+                  "{s:2,w:7,d:3}}");
+        //$p.setWeek("周二");
         //update($p)
-		System.out.println("hello, si!");
+		System.out.println("hello, "+$p.getName());
 end
 
 query "Employee"

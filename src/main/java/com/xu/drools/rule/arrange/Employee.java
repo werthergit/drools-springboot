@@ -1,16 +1,62 @@
 package com.xu.drools.rule.arrange;
 
+import java.util.List;
+
 public class Employee {
 
     private String id;
 
     private String name;
 
-    private String shift;
+    /**
+     * 序号
+     */
+    private int order;
+    /**
+     * 组
+     */
+    private String group;
 
-    private String week;
+    /**
+     *  角色：1普通 2专家
+     */
+    private String role;
 
-    private String day;
+
+    private String arrangeJson;
+
+    /**
+     *
+     *  班次集合
+     */
+    private List<ArrangeInfo> arrangeInfoList;
+
+
+
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getId() {
         return id;
@@ -28,27 +74,19 @@ public class Employee {
         this.name = name;
     }
 
-    public String getShift() {
-        return shift;
+    public List<ArrangeInfo> getArrangeInfoList() {
+        return arrangeInfoList;
     }
 
-    public void setShift(String shift) {
-        this.shift = shift;
+    public void setArrangeInfoList(List<ArrangeInfo> arrangeInfoList) {
+        this.arrangeInfoList = arrangeInfoList;
     }
 
-    public String getWeek() {
-        return week;
+    public String getArrangeJson() {
+        return arrangeJson;
     }
 
-    public void setWeek(String week) {
-        this.week = week;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
+    public void setArrangeJson(String arrangeJson) {
+        this.arrangeJson = arrangeJson;
     }
 }

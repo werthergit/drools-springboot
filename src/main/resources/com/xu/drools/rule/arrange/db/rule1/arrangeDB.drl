@@ -1,0 +1,103 @@
+package com.xu.drools;
+
+/**
+*  DB: 5人以上
+*
+*/
+
+import com.xu.drools.rule.arrange.Employee;
+
+function String hello(String name) {
+    return "Hello "+name+"!";
+}
+
+
+rule "g1-01"
+	when
+        $p : Employee((order%5) == 1);
+    then
+        $p.setArrangeJson("{{w:1,S:0}," +
+          "{w:2,S:A }," +
+          "{w:3,S:A }," +
+          "{w:4,S:A }," +
+          "{w:5,S:A }," +
+          "{w:6,S:A }," +
+          "{W:7,S:0 }}");
+        //update($p)
+        //$p.setArrangeJson(hello1(1));
+        //System.out.println(hello1($p.getOrder()));
+        System.out.println(hello($p.getName()));
+end
+rule "g1-02"
+	when
+        $p : Employee((order%5) == 2);
+    then
+        $p.setArrangeJson("{{w:1,s:A}," +
+          "{w:2,S:0 }," +
+          "{w:3,S:A }," +
+          "{w:4,S:A }," +
+          "{w:5,S:A }," +
+          "{w:6,S:A }," +
+          "{W:7,S:0 }}");
+        //update($p)
+        //$p.setArrangeJson(hello2(2));
+        //System.out.println(hello2($p.getOrder()));
+        System.out.println("hello, "+$p.getName());
+end
+
+rule "g1-03"
+	when
+        $p : Employee( (order%5) == 3);
+    then
+        $p.setArrangeJson("{{w:1,s:A}," +
+          "{w:2,S:A }," +
+          "{w:3,S:0 }," +
+          "{w:4,S:A }," +
+          "{w:5,S:A }," +
+          "{w:6,S:A }," +
+          "{W:7,S:0 }}");
+        //update($p)
+        //System.out.println(hello3($p.getOrder()));
+        //$p.setArrangeJson(hello3(3));
+        System.out.println("hello, "+$p.getName());
+end
+rule "g1-04"
+	when
+        $p : Employee( (order%5) == 4);
+    then
+        $p.setArrangeJson("{{w:1,s:A}," +
+          "{w:2,S:A }," +
+          "{w:3,S:A }," +
+          "{w:4,S:0 }," +
+          "{w:5,S:A }," +
+          "{w:6,S:A }," +
+          "{W:7,S:0 }}");
+        //update($p)
+        //System.out.println(hello4($p.getOrder()));
+        //$p.setArrangeJson(hello4(4));
+        System.out.println("hello, "+$p.getName());
+end
+
+rule "g1-05"
+	when
+        $p : Employee( (order%5) == 0);
+    then
+        $p.setArrangeJson("{{W:1,S:A}," +
+          "{W:2,S:A }," +
+          "{W:3,S:A }," +
+          "{W:4,S:A }," +
+          "{W:5,S:0 }," +
+          "{W:6,S:A }," +
+          "{W:7,S:0 }}");
+        //update($p)
+        //System.out.println(hello4($p.getOrder()));
+        //$p.setArrangeJson(hello4(4));
+        System.out.println("hello, "+$p.getName());
+end
+
+
+
+
+query "Employee"
+    employee : Employee( name == "lisi" )
+end
