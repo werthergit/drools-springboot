@@ -17,13 +17,13 @@ function String  hello1(int  order) {
     int i = 1;
     for(; i<=31; i++){
        if(i%4==1){
-          str +="{d:"+i+",s:B},";
+          str +="d"+i+":B,";
        }else if(i%4==2){
-          str +="{d:"+i+",s:A},";
+          str +="d"+i+":A,";
        }else if(i%4==3){
-          str +="{d:"+i+",s:C},";
+          str +="d"+i+":C,";
        }else if(i%4==0){
-          str +="{d:"+i+",s:0},";
+          str +="d"+i+":0,";
        }
     }
     str = str.substring(0,str.length() - 1);
@@ -35,13 +35,13 @@ function String  hello2(int  order) {
     int i = 1;
     for(; i<=31; i++){
        if(i%4==1){
-          str +="{d:"+i+",s:A},";
+          str +="d"+i+":A,";
        }else if(i%4==2){
-          str +="{d:"+i+",s:C},";
+          str +="d"+i+":C,";
        }else if(i%4==3){
-          str +="{d:"+i+",s:0},";
+          str +="d"+i+":0,";
        }else if(i%4==0){
-          str +="{d:"+i+",s:B},";
+          str +="d"+i+":B,";
        }
     }
     str = str.substring(0,str.length() - 1);
@@ -53,13 +53,13 @@ function String  hello3(int  order) {
     int i = 1;
     for(; i<=31; i++){
        if(i%4==1){
-          str +="{d:"+i+",s:C},";
+          str +="d"+i+":C,";
        }else if(i%4==2){
-          str +="{d:"+i+",s:0},";
+          str +="d"+i+":0,";
        }else if(i%4==3){
-          str +="{d:"+i+",s:B},";
+          str +="d"+i+":B,";
        }else if(i%4==0){
-          str +="{d:"+i+",s:A},";
+          str +="d"+i+":A,";
        }
     }
     str = str.substring(0,str.length() - 1);
@@ -71,13 +71,13 @@ function String  hello4(int  order) {
     int i = 1;
     for(; i<=31; i++){
        if(i%4==1){
-          str +="{d:"+i+",s:0},";
+          str +="d"+i+":0,";
        }else if(i%4==2){
-          str +="{d:"+i+",s:B},";
+          str +="d"+i+":B,";
        }else if(i%4==3){
-          str +="{d:"+i+",s:A},";
+          str +="d"+i+":A,";
        }else if(i%4==0){
-          str +="{d:"+i+",s:C},";
+          str +="d"+i+":C,";
        }
     }
     str = str.substring(0,str.length() - 1);

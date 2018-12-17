@@ -1,0 +1,110 @@
+package com.xu.drools;
+
+/**
+*  RB: 5人以上
+
+   B   A  C   0
+1、11  9  10  12
+2、10  9  11  12
+3、10  9  11  12
+4、11  9  10  12
+5、11  9  10  12
+
+*
+*/
+
+
+import com.xu.drools.rule.arrange.Employee;
+
+function String hello(String name) {
+    return "Hello "+name+"!";
+}
+
+function String pattern1(){
+   String str = "W1:{W1:B, W2:A, W3:C ,W4:0 ,W5:B ,W6:0, W7:C }";
+   return str;
+}
+
+function String pattern2(){
+   String str = "W2:{W1:A, W2:C, W3:0 ,W4:B ,W5:A ,W6:C, W7:0 }";
+   return str;
+}
+
+function String pattern3(){
+   String str = "W3:{W1:C, W2:0, W3:B ,W4:A ,W5:C ,W6:0, W7:B }";
+   return str;
+}
+
+function String pattern4(){
+   String str = "W4:{W1:0, W2:B, W3:A ,W4:C ,W5:0 ,W6:B, W7:A }";
+   return str;
+}
+
+function String pattern5(){
+   String str = "W1:{W1:B, W2:0, W3:C ,W4:0 ,W5:B ,W6:A, W7:C }";
+   return str;
+}
+
+
+
+
+
+rule "g1-01"
+	when
+        $p : Employee((order%5) == 1);
+    then
+        $p.setArrangeJson("{"+ pattern1() +","+ pattern4()+"," +pattern3()+","+ pattern2()+","+ pattern1() +","+ pattern4()+"}"  );
+
+        System.out.println(hello($p.getName()));
+end
+rule "g1-02"
+	when
+        $p : Employee((order%5) == 2);
+    then
+        $p.setArrangeJson("{"+ pattern2() +","+ pattern1()+"," +pattern4()+","+ pattern3()+","+ pattern2() +","+ pattern1()+"}"  );
+
+        //System.out.println(hello2($p.getOrder()));
+        System.out.println("hello, "+$p.getName());
+end
+
+rule "g1-03"
+	when
+        $p : Employee( (order%5) == 3);
+    then
+        $p.setArrangeJson("{"+ pattern3() +","+ pattern2()+"," +pattern5()+","+ pattern4()+","+ pattern3() +","+ pattern2()+"}"  );
+
+//        $p.setArrangeJson("{{w:1,s:C}," +
+//          "{w:2,S:0 }," +
+//          "{w:3,S:A }," +
+//          "{w:4,S:B }," +
+//          "{w:5,S:C }," +
+//          "{w:6,S:0 }," +
+//          "{s:7,w:A }}");
+        //update($p)
+        //System.out.println(hello3($p.getOrder()));
+        //$p.setArrangeJson(hello3(3));
+        System.out.println("hello, "+$p.getName());
+end
+rule "g1-04"
+	when
+        $p : Employee( (order%5) == 4);
+    then
+        $p.setArrangeJson("{"+ pattern4() +","+ pattern3()+"," +pattern2()+","+ pattern1()+","+ pattern4() +","+ pattern3()+"}"  );
+
+        System.out.println("hello, "+$p.getName());
+end
+rule "g1-05"
+	when
+        $p : Employee( (order%5) == 0);
+    then
+        $p.setArrangeJson("{"+ pattern5() +","+ pattern4()+"," +pattern3()+","+ pattern2()+","+ pattern1() +","+ pattern4()+"}"  );
+
+        System.out.println("hello, "+$p.getName());
+end
+
+
+
+
+query "Employee"
+    employee : Employee( name == "lisi" )
+end

@@ -26,7 +26,7 @@
         <ksession name="arrangeKS"/>
     </kbase>
 
-    <kbase name="arrangeForRBKB" packages="com.xu.drools.rule.arrange.rb">
+    <kbase name="arrangeForRBKB" packages="com.xu.drools.rule.arrange.rb.rule2">
         <ksession name="arrangeForRBKS"/>
     </kbase>
 
