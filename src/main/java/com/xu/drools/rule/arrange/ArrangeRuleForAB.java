@@ -74,6 +74,8 @@ public class ArrangeRuleForAB {
         System.out.println("");
         System.out.println("emp3:"+employee3.getArrangeJson());
         System.out.println("");
+        System.out.println("########################################");
+        System.out.println("");
         System.out.println("emp4:"+employee4.getArrangeJson());
         System.out.println("");
         System.out.println("emp5:"+employee5.getArrangeJson());
