@@ -2,6 +2,7 @@ package com.xu.drools;
 
 /**
 *  DB: 5人以上
+*  每周休息两天，周六、日上班
 *
 */
 
@@ -11,18 +12,38 @@ function String hello(String name) {
     return "Hello "+name+"!";
 }
 
+function String pattern1(){
+   String str = "W1:{W1:0,W2:A ,W3:0 ,W4:A ,W5:A ,W6:A,W7:A }";
+   return str;
+}
+
+function String pattern2(){
+   String str = "W1:{W1:A,W2:0 ,W3:A ,W4:0 ,W5:A ,W6:A,W7:A }";
+   return str;
+}
+
+function String pattern3(){
+   String str = "W1:{W1:0,W2:A ,W3:A ,W4:A ,W5:0 ,W6:A,W7:A }";
+   return str;
+}
+
+function String pattern4(){
+   String str = "W1:{W1:A,W2:0 ,W3:A ,W4:0 ,W5:A ,W6:A,W7:A }";
+   return str;
+}
+
+function String pattern5(){
+   String str = "W1:{W1:A,W2:A ,W3:0 ,W4:A ,W5:0 ,W6:A,W7:A }";
+   return str;
+}
+
 
 rule "g1-01"
 	when
         $p : Employee((order%5) == 1);
     then
-        $p.setArrangeJson("{{W:1,S:0}," +
-          "{W:2,S:A }," +
-          "{W:3,S:0 }," +
-          "{W:4,S:A }," +
-          "{W:5,S:A }," +
-          "{W:6,S:A }," +
-          "{W:7,S:A }}");
+        $p.setArrangeJson("{"+ pattern1() +","+ pattern2()+"," +pattern3()+","+ pattern4()+","+ pattern5() +","+ pattern1()+"}"  );
+
         //update($p)
         //$p.setArrangeJson(hello1(1));
         //System.out.println(hello1($p.getOrder()));
@@ -32,13 +53,7 @@ rule "g1-02"
 	when
         $p : Employee((order%5) == 2);
     then
-        $p.setArrangeJson("{{W:1,S:A}," +
-          "{W:2,S:0 }," +
-          "{W:3,S:A }," +
-          "{W:4,S:0 }," +
-          "{W:5,S:A }," +
-          "{W:6,S:A }," +
-          "{W:7,S:A }}");
+         $p.setArrangeJson("{"+ pattern2() +","+ pattern3()+"," +pattern4()+","+ pattern5()+","+ pattern1() +","+ pattern2()+"}"  );
         //update($p)
         //$p.setArrangeJson(hello2(2));
         //System.out.println(hello2($p.getOrder()));
@@ -49,13 +64,8 @@ rule "g1-03"
 	when
         $p : Employee( (order%5) == 3);
     then
-        $p.setArrangeJson("{{W:1,S:0}," +
-          "{W:2,S:A }," +
-          "{W:3,S:A }," +
-          "{W:4,S:A }," +
-          "{W:5,S:0 }," +
-          "{W:6,S:A }," +
-          "{W:7,S:A }}");
+       $p.setArrangeJson("{"+ pattern3() +","+ pattern4()+"," +pattern5()+","+ pattern1()+","+ pattern2() +","+ pattern3()+"}"  );
+
         //update($p)
         //System.out.println(hello3($p.getOrder()));
         //$p.setArrangeJson(hello3(3));
@@ -65,13 +75,8 @@ rule "g1-04"
 	when
         $p : Employee( (order%5) == 4);
     then
-        $p.setArrangeJson("{{W:1,S:A}," +
-          "{W:2,S:0 }," +
-          "{W:3,S:A }," +
-          "{W:4,S:0 }," +
-          "{W:5,S:A }," +
-          "{W:6,S:A }," +
-          "{W:7,S:A }}");
+        $p.setArrangeJson("{"+ pattern4() +","+ pattern5()+"," +pattern1()+","+ pattern2()+","+ pattern3() +","+ pattern4()+"}"  );
+
         //update($p)
         //System.out.println(hello4($p.getOrder()));
         //$p.setArrangeJson(hello4(4));
@@ -82,13 +87,8 @@ rule "g1-05"
 	when
         $p : Employee( (order%5) == 0);
     then
-        $p.setArrangeJson("{{W:1,S:A}," +
-          "{W:2,S:A }," +
-          "{W:3,S:0 }," +
-          "{W:4,S:A }," +
-          "{W:5,S:0 }," +
-          "{W:6,S:A }," +
-          "{W:7,S:A }}");
+        $p.setArrangeJson("{"+ pattern5() +","+ pattern1()+"," +pattern2()+","+ pattern3()+","+ pattern4() +","+ pattern5()+"}"  );
+
         //update($p)
         //System.out.println(hello4($p.getOrder()));
         //$p.setArrangeJson(hello4(4));
